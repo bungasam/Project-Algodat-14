@@ -9,6 +9,13 @@ public class LinkedListBook {
     Node head;
 
     public void addBook(Book b) {
+
+        // Cek apakah ID sudah ada
+        if (isIdExists(b.id)) {
+            System.out.println("Kode buku '" + b.id + "' sudah ada! Buku tidak ditambahkan.");
+            return; // hentikan
+        }
+
         Node n = new Node(b);
 
         if (head == null) {
@@ -19,18 +26,32 @@ public class LinkedListBook {
                 cur = cur.next;
             cur.next = n;
         }
+
+        System.out.println("Buku dengan ID '" + b.id + "' berhasil ditambahkan!");
+    }
+
+    // Mengecek apakah ID sudah ada dalam list
+    private boolean isIdExists(String id) {
+        Node cur = head;
+        while (cur != null) {
+            if (cur.data.id.equals(id)) {
+                return true; // ditemukan
+            }
+            cur = cur.next;
+        }
+        return false; // tidak ada
     }
 
     // --- UI ENHANCEMENT: Tampilan buku lebih terstruktur ---
     public void showBooks() {
         if (head == null) {
-            System.out.println("⚠️ Tidak ada buku saat ini!");
+            System.out.println("Tidak ada buku saat ini!");
             return;
         }
 
         Node cur = head;
         System.out.println("╔════════════════════════════════════════════════════╗");
-        System.out.println("║          📖 DAFTAR SEMUA BUKU DI PERPUSTAKAAN      ║");
+        System.out.println("║            DAFTAR SEMUA BUKU DI PERPUSTAKAAN      ║");
         System.out.println("╚════════════════════════════════════════════════════╝");
         
         int count = 1;
@@ -72,7 +93,7 @@ public class LinkedListBook {
 
 
         if (!found) {
-            System.out.println("⚠️ Buku tidak ditemukan!");
+            System.out.println("Buku tidak ditemukan!");
         }
     }
     
@@ -109,7 +130,7 @@ public class LinkedListBook {
             }
         } while (swapped);
         
-        System.out.println("✅ Daftar buku berhasil diurutkan berdasarkan Judul!");
+        System.out.println("Daftar buku berhasil diurutkan berdasarkan Judul!");
         showBooks(); // Panggilan BARU: tampilkan setelah diurutkan
     }
     
@@ -134,7 +155,7 @@ public class LinkedListBook {
             }
         } while (swapped);
         
-        System.out.println("✅ Daftar buku berhasil diurutkan berdasarkan ID Buku!");
+        System.out.println("Daftar buku berhasil diurutkan berdasarkan ID Buku!");
         showBooks(); // Panggilan BARU: tampilkan setelah diurutkan
     }
 }

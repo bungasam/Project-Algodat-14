@@ -76,7 +76,7 @@ public class Main {
             bookList.addBook(book);
             tree.insert(book);
         }
-        System.out.println("✅ 10 buku berhasil dimuat ke daftar buku dan tree.\n");
+        System.out.println("buku berhasil dimuat ke daftar buku dan tree.\n");
     }
     
     // ============================== //
@@ -104,7 +104,7 @@ public class Main {
         
         // --- UI ENHANCEMENT: Menu Border ---
         System.out.println("╔════════════════════════════════════════╗");
-        System.out.println("║            📚 NODE LIBRARY 📚          ║"); 
+        System.out.println("║              NODE LIBRARY              ║"); 
         System.out.println("╠════════════════════════════════════════╣");
         System.out.println("║    SISTEM MANAJEMEN PERPUSTAKAAN (ALGODAT) ║");
         System.out.println("╠════════════════════════════════════════╣");
@@ -203,7 +203,7 @@ public class Main {
             try {
                 pilihan = Integer.parseInt(command);
             } catch (NumberFormatException e) {
-                System.out.println("⚠️ Input tidak valid. Silakan masukkan angka.");
+                System.out.println("Input tidak valid. Silakan masukkan angka.");
                 pause();
                 continue;
             }
@@ -223,7 +223,7 @@ public class Main {
                     return;
                 }
                 default -> {
-                    System.out.println("⚠️ Pilihan tidak ada.");
+                    System.out.println("Pilihan tidak ada.");
                     pause();
                 }
             }
@@ -250,7 +250,7 @@ public class Main {
         try {
             tahun = Integer.parseInt(input.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println("⚠️ Input tahun tidak valid. Menggunakan 0.");
+            System.out.println("Input tahun tidak valid. Menggunakan 0.");
         }
 
         System.out.print("Stok Buku: ");
@@ -258,7 +258,7 @@ public class Main {
         try {
             stok = Integer.parseInt(input.nextLine());
         } catch (NumberFormatException e) {
-            System.out.println("⚠️ Input stok tidak valid. Menggunakan 0.");
+            System.out.println("Input stok tidak valid. Menggunakan 0.");
         }
 
         Book newBook = new Book(id, judul, author, tahun, stok);
@@ -266,7 +266,6 @@ public class Main {
         tree.insert(newBook); 
         
         System.out.println("╚════════════════════════════════════════╝");
-        System.out.println("✅ Buku berhasil ditambahkan!");
         pause();
     }
 
