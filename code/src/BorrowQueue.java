@@ -45,17 +45,22 @@ public class BorrowQueue {
         return front == null;
     }
 
+    // --- UI ENHANCEMENT: Tampilan antrian dengan bingkai ---
     public void showQueue() {
         if (isEmpty()) {
-            System.out.println("Antrian kosong");
+            System.out.println("✅ Antrian peminjaman kosong.");
             return;
         }
 
         Node temp = front;
-        System.out.println("Daftar Antrian Peminjam:");
+        System.out.println("╔═════════════════════════════════════════════════════════════════════════╗");
+        System.out.println("║                 ⏳ DAFTAR ANTRIAN PEMINJAMAN (FIFO)                 ║");
+        System.out.println("╠═════════════════════════════════════════════════════════════════════════╣");
+        int count = 1;
         while (temp != null) {
-            System.out.println("- " + temp.data.toString());
+            System.out.printf("║ %-3s %s\n", count++ + ".", temp.data.toString());
             temp = temp.next;
         }
+        System.out.println("╚═════════════════════════════════════════════════════════════════════════╝");
     }
 }

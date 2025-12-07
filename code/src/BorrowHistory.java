@@ -13,14 +13,21 @@ public class BorrowHistory {
         history.push(historyEntry);
     }
 
+    // --- UI ENHANCEMENT: Tampilan history dengan bingkai ---
     public void showHistory() {
         if (history.isEmpty()) {
-            System.out.println("History kosong!");
+            System.out.println("⏳ History transaksi masih kosong!");
             return;
         }
 
-        System.out.println("=== HISTORY PEMINJAMAN ===");
-        for (String h : history)
-            System.out.println(h);
+        System.out.println("╔═════════════════════════════════════════════════════════════════════════╗");
+        System.out.println("║                 📚 RIWAYAT TRANSAKSI PERPUSTAKAAN (LIFO)              ║");
+        System.out.println("╠═════════════════════════════════════════════════════════════════════════╣");
+        
+        // Stack iterates from base to top.
+        for (String h : history) {
+            System.out.println("║ " + h);
+        }
+        System.out.println("╚═════════════════════════════════════════════════════════════════════════╝");
     }
 }
