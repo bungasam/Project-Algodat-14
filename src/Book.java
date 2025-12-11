@@ -20,4 +20,8 @@ public class Book {
     public void setStock(int stock) {
         this.stock = stock;
     }
+    
+    public String toString() {
+        return id + " - " + title + " (" + author + ")";
+    }
 }
